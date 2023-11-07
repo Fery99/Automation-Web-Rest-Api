@@ -23,7 +23,7 @@ public class Models {
     }
 
     public static Response postCreateUsers(String endpoint) {
-        String name = "Daffa Fawwaz Maulana";
+        String name = "Fery Sadewa";
         String gender = "male";
         String email = generateRandomEmail();
         String status = "active";
