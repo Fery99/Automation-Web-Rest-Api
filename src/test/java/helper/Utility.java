@@ -33,7 +33,7 @@ public class Utility {
 //        WebDriverManager.chromedriver().create();
         driver = new ChromeDriver(options);
 
-
+//
 //        EdgeOptions options = new EdgeOptions();
 //        options.addArguments("--headless");
 //        WebDriverManager.edgedriver().setup();
