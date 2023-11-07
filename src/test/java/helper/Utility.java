@@ -27,18 +27,18 @@ public class Utility {
     }
 
     protected void getDriver() {
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless");
-//        WebDriverManager.edgedriver().setup();
-//        WebDriverManager.chromedriver().create();
-//        driver = new ChromeDriver(options);
-
-
-        EdgeOptions options = new EdgeOptions();
+        ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         WebDriverManager.edgedriver().setup();
+//        WebDriverManager.chromedriver().create();
+        driver = new ChromeDriver(options);
+
+
+//        EdgeOptions options = new EdgeOptions();
+//        options.addArguments("--headless");
+//        WebDriverManager.edgedriver().setup();
 //        WebDriverManager.edgedriver().create();
-        driver = new EdgeDriver(options);
+//        driver = new EdgeDriver(options);
 
     }
 }
