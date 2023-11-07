@@ -1,6 +1,7 @@
 package StepDev;
 
 import Pages.WebPage;
+import Pages.apiPage;
 import helper.Utility;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -13,8 +14,9 @@ public class webStepDev extends Utility {
 
     WebPage webPage;
 
+
     public webStepDev() {
-        this.webPage = new WebPage();
+        webPage = new WebPage();
     }
 
     @Given("user is on login page")

@@ -1,20 +1,22 @@
 package StepDev;
 
 import Pages.apiPage;
+import helper.Utility;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.WebDriver;
+
+import static helper.Utility.driver;
 
 public class apiStepdef {
 
     apiPage apiurl;
 
     public apiStepdef(){
-        this.apiurl = new apiPage();
+       this. apiurl = new apiPage();
     }
-
-
 
     @Given("prepare url for {string}")
     public void prepareUrlFor(String url) {
