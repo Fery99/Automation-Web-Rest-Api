@@ -15,6 +15,6 @@ public class Hooks extends Utility {
   @After
   public void afterTest()throws InterruptedException {
 //    Thread.sleep(1000);
-    driver.close();
+    driver.quit();
   }
 }

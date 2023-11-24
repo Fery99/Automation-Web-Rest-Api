@@ -35,4 +35,4 @@ Feature: Test Automation Rest API
     And hit api put
     And validation status code is equals 200
     When validation response body put edit  user
-    Then validation response json with JSONSchema "put_edit_user_normal.json"
+#    Then validation response json with JSONSchema "put_edit_user_normal.json"

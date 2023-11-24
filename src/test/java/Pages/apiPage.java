@@ -71,6 +71,8 @@ public class apiPage {
 
     public void hitApiPostCreateNewUsers(){
         res = postCreateUsers(setURL);
+
+        System.out.println(res.getBody().asString());
     }
 
 
@@ -92,7 +94,7 @@ public class apiPage {
     }
 
     public void hitApiDeleteNew(){
-        res = deleteUser(setURL,global_user_id);
+        res = deleteUser(setURL, global_user_id);
     }
 
 

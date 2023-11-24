@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty"},
         glue = {"StepDev"},
         features = {"src/test/java/feature"},
-//        tags = "@api",
+        tags = "@api",
         monochrome = true
 )
 public class testRunnerAPI {
