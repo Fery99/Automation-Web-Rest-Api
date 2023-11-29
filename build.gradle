@@ -24,7 +24,7 @@ dependencies {
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.24.0'
     //untuk Web
     testImplementation 'org.seleniumhq.selenium:selenium-java:4.14.1'
-    testImplementation("io.github.bonigarcia:webdrivermanager:5.5.3")
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.6.0'
     //oke
 
 
@@ -42,44 +42,60 @@ configurations {
     }
 }
 
-//test {
-//    useJUnitPlatform()
-//    systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
-//}
-//
-//
-//tasks.register('apiTest') {
-//    dependsOn assemble, testClasses
-//    doLast {
-//        javaexec {
-//            main = "io.cucumber.core.cli.Main"
-//            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-//            args = [
-//                    '--plugin', 'pretty',
-//                    '--plugin', 'html:reports/cucumber-api-report.html',
-//                    '--glue', 'StepDev',
-//                    '--tags', "@api",
-//                    'src/test/java/feature']
-//        }
-//    }
-//}
+test {
+    useJUnitPlatform()
+    systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
+}
 
-def tags = (findProperty('tags') == null) ? 'not @exclude' : findProperty('tags') + ' and not @exclude'
-
-task cucumber() {
-    description("Running Cucumber Test")
-    dependsOn assemble, compileTestJava
+tasks.register('apiTest') {
+    dependsOn assemble, testClasses
     doLast {
         javaexec {
             main = "io.cucumber.core.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = [
-                    '--plugin', 'html:reports/index.html',
                     '--plugin', 'pretty',
+                    '--plugin', 'html:reports/cucumber-api-report.html',
                     '--glue', 'StepDev',
-                    '--tags', "${tags}",
-                    'src/test/java/feature'
-            ]
+                    '--tags', "@api",
+                    'src/test/java/feature']
+        }
+    }
+}
+
+def tags = (findProperty('tags') == null) ? 'not @exclude' : findProperty('tags') + ' and not @exclude'
+
+//task cucumber() {
+//    description("Running Cucumber Test")
+//    dependsOn assemble, compileTestJava
+//    doLast {
+//        javaexec {
+//            main = "io.cucumber.core.cli.Main"
+//            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+//            args = [
+//                    '--plugin', 'html:reports/index.html',
+//                    '--plugin', 'pretty',
+//                    '--glue', 'StepDev',
+//                    '--tags', "${tags}",
+//                    'src/test/java/feature'
+//            ]
+//        }
+//    }
+//}
+
+
+tasks.register('webTest') {
+    dependsOn assemble, testClasses
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = [
+                    '--plugin', 'pretty',
+                    '--plugin', 'html:reports/cucumber-web-report.html',
+                    '--glue', 'stepDef',
+                    '--tags', "@web",
+                    'src/test/java/features']
         }
     }
 }

@@ -1,7 +1,7 @@
 @Login_or_no
 Feature:Test Automation Web: login and how to shoping
 
-  @valid
+  @web
   Scenario: Login using valid email and password
     Given user is on login page
     And user input username with "standard_user"
@@ -9,7 +9,7 @@ Feature:Test Automation Web: login and how to shoping
     When user click login button
     Then user is on homepage
 
-  @invalid
+  @web
   Scenario: Login using invalid email and password
     Given user is on login page
     And user input username with "standard_user"
@@ -17,7 +17,7 @@ Feature:Test Automation Web: login and how to shoping
     When user click login button
     Then user able to see error message "Epic sadface: Username and password do not match any user in this service"
 
-  @viewAllList
+  @web
   Scenario: All Item Displayed
     Given user is on login page
     And user input username with "standard_user"
@@ -28,7 +28,7 @@ Feature:Test Automation Web: login and how to shoping
 #    When user click all items
     Then user is on All List Item
 
-  @detailItems
+  @web
   Scenario: Display detailed of item selection
     Given user is on login page
     And user input username with "standard_user"
@@ -38,7 +38,7 @@ Feature:Test Automation Web: login and how to shoping
     When  user click item selection
     Then  user is on page of item selection
 
-  @addItemToChart
+  @web
   Scenario: Item selection can be add to chart
     Given user is on login page
     And user input username with "standard_user"
@@ -49,7 +49,7 @@ Feature:Test Automation Web: login and how to shoping
     When  user is on page of item selection
     Then user click Add to chart
 
-  @buyItem
+  @web
   Scenario: Checkout  and finish register for buy item
     Given user is on login page
     And user input username with "standard_user"

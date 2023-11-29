@@ -48,8 +48,13 @@ public class WebPage extends Utility {
     By inputCheckoutComplete = By.xpath("//*[@id=\"header_container\"]/div[2]/span");
 
     public void userIsOnLoginPage(){
-//        driver.navigate().to("https://www.saucedemo.com");
-        driver.get("https://www.saucedemo.com");
+        driver.navigate().to("https://www.saucedemo.com");
+//        if (driver != null) {
+//            driver.navigate().to("https://www.saucedemo.com");
+//        } else {
+//            System.out.println("Driver is null. Kosongan gaada web nya.");
+//        }
+//        driver.get("https://www.saucedemo.com");
     }
 
     public void userInputUsernameWith (String username){

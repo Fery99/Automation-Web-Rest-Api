@@ -6,8 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
-
 import java.io.File;
+import java.time.Duration;
 
 
 public class Utility {
@@ -28,10 +28,17 @@ public class Utility {
 
     protected void getDriver() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        WebDriverManager.edgedriver().setup();
-//        WebDriverManager.chromedriver().create();
+//        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-allow-origins=*");
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+
+
+
 
 //
 //        EdgeOptions options = new EdgeOptions();
@@ -40,5 +47,18 @@ public class Utility {
 //        WebDriverManager.edgedriver().create();
 //        driver = new EdgeDriver(options);
 
+    }
+
+
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--headless");
+//        WebDriverManager.chromedriver().setup();
+////        WebDriverManager.chromedriver().create();
+//        driver = new ChromeDriver(options);
+
+
+    public static void quitDriver() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.quit();
     }
 }
